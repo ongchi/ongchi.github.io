@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>http://ongchi.github.io/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Sep 2015 12:18:00 +0000</lastBuildDate><atom:link href="http://ongchi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using YouCompleteMe with Neovim (or vim) on Mac OS X</title>
+      <link>http://ongchi.github.io/post/2015-09-04-Using-YouCompeleteMe-with-Neovim-on-Mac-OS-X/</link>
+      <pubDate>Fri, 04 Sep 2015 12:18:00 +0000</pubDate>
+      
+      <guid>http://ongchi.github.io/post/2015-09-04-Using-YouCompeleteMe-with-Neovim-on-Mac-OS-X/</guid>
+      <description>The install guide does not always work if there are various python installation on your system. If your YCM link against different python version from vim, may cause python crashes on start up:
+Fatal Python error: PyThreadState_Get: no current thread It is better to specify python paths for build with YCM plugin.
+For example, I have miniconda distribution of python2.7 located in /opt/miniconda, run the following command to generate makefiles and build for YCM:</description>
+    </item>
+    
+  </channel>
+</rss>

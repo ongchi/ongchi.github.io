@@ -1,0 +1,19 @@
+current directory: /Users/hii/Sites/ongchi.github.io/vendor/bundle/ruby/2.6.0/gems/RedCloth-4.2.9/ext/redcloth_scan
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -I /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0 -r ./siteconf20200503-13798-99hagn.rb extconf.rb
+checking for main() in -lc... yes
+creating Makefile
+
+current directory: /Users/hii/Sites/ongchi.github.io/vendor/bundle/ruby/2.6.0/gems/RedCloth-4.2.9/ext/redcloth_scan
+make "DESTDIR=" clean
+
+current directory: /Users/hii/Sites/ongchi.github.io/vendor/bundle/ruby/2.6.0/gems/RedCloth-4.2.9/ext/redcloth_scan
+make "DESTDIR="
+compiling redcloth_attributes.c
+compiling redcloth_inline.c
+compiling redcloth_scan.c
+linking shared-object redcloth_scan.bundle
+ld: warning: directory not found for option '-L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.Internal.sdk/usr/local/lib'
+
+current directory: /Users/hii/Sites/ongchi.github.io/vendor/bundle/ruby/2.6.0/gems/RedCloth-4.2.9/ext/redcloth_scan
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 redcloth_scan.bundle ./.gem.20200503-13798-tnp8mc
