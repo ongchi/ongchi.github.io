@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://ongchi.github.io/</loc>
+    </url>
+    <url>
+        <loc>https://ongchi.github.io/archive/</loc>
+    </url>
+    <url>
+        <loc>https://ongchi.github.io/posts/</loc>
+    </url>
+    <url>
+        <loc>https://ongchi.github.io/posts/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://ongchi.github.io/posts/using-youcompeleteme-with-neovim-on-mac-os-x/</loc>
+        <lastmod>2015-09-04T12:18:00Z</lastmod>
+    </url>
+    <url>
+        <loc>https://ongchi.github.io/tags/</loc>
+    </url>
+    <url>
+        <loc>https://ongchi.github.io/tags/neovim/</loc>
+    </url>
+    <url>
+        <loc>https://ongchi.github.io/tags/vim/</loc>
+    </url>
+</urlset>

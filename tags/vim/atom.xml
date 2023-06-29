@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - vim</title>
+    <link href="https://ongchi.github.io/tags/vim/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://ongchi.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2015-09-04T12:18:00+00:00</updated>
+    <id>https://ongchi.github.io/tags/vim/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Using YouCompleteMe with Neovim (or vim) on Mac OS X</title>
+        <published>2015-09-04T12:18:00+00:00</published>
+        <updated>2015-09-04T12:18:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://ongchi.github.io/posts/using-youcompeleteme-with-neovim-on-mac-os-x/" type="text/html"/>
+        <id>https://ongchi.github.io/posts/using-youcompeleteme-with-neovim-on-mac-os-x/</id>
+        
+        <content type="html">&lt;h2 id=&quot;working-with-custom-python-installation&quot;&gt;Working with Custom Python Installation&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#working-with-custom-python-installation&quot; hidden=&quot;&quot;&gt;#&lt;&#x2F;a&gt;
+&lt;&#x2F;h2&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Valloric&#x2F;YouCompleteMe&#x2F;blob&#x2F;master&#x2F;README.md&quot;&gt;install guide&lt;&#x2F;a&gt; does not always work if there are various python installation on your system.
+If your YCM link against different python version from vim, may cause python crashes on start up:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;Fatal&lt;&#x2F;span&gt;&lt;span&gt; Python error: PyThreadState_Get: no current thread
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It is better to specify python paths for build with YCM plugin.&lt;&#x2F;p&gt;
+&lt;p&gt;For example, I have miniconda distribution of python2.7 located in &#x2F;opt&#x2F;miniconda,
+run the following command to generate makefiles and build for YCM:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span&gt; $ mkdir ycmd_build
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span&gt; $ cd ycmd_build
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;~&#x2F;ycmd_build&lt;&#x2F;span&gt;&lt;span&gt; $ cmake&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -G &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Unix Makefiles&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; . \
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;.dotfiles&#x2F;vim&#x2F;plugged&#x2F;YouCompleteMe&#x2F;third_party&#x2F;ycmd&#x2F;cpp \
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-DPYTHON_INCLUDE_DIR&lt;&#x2F;span&gt;&lt;span&gt;=&#x2F;opt&#x2F;miniconda&#x2F;include&#x2F;python2.7 \
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-DPYTHON_LIBRARY&lt;&#x2F;span&gt;&lt;span&gt;=&#x2F;opt&#x2F;miniconda&#x2F;lib&#x2F;libpython2.7.dylib \
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-DPYTHON_EXECUTABLE&lt;&#x2F;span&gt;&lt;span&gt;=&#x2F;opt&#x2F;miniconda&#x2F;bin&#x2F;python2.7
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;~&#x2F;ycmd_build&lt;&#x2F;span&gt;&lt;span&gt; $ make ycm_support_libs
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;For (mac)vim, you&#x27;d better to make sure to compile with same version of python or it will crashes.&lt;&#x2F;p&gt;
+&lt;p&gt;After above works, the python still crashing every time I launched nvim with no luck...😞&lt;&#x2F;p&gt;
+&lt;p&gt;Look into the YCM shared libs, it is linked with relative path
+even though I have specified the absolute path to cmake:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;~&#x2F;.d&#x2F;v&#x2F;p&#x2F;Y&#x2F;t&#x2F;ycmd&lt;&#x2F;span&gt;&lt;span&gt; $ otool&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -L&lt;&#x2F;span&gt;&lt;span&gt; ycm_*.so
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ycm_core.so:
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;@rpath&#x2F;ycm_core.so&lt;&#x2F;span&gt;&lt;span&gt; (compatibility version 0.0.0, current version 0.0.0)
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;libpython2.7.dylib&lt;&#x2F;span&gt;&lt;span&gt; (compatibility version 2.7.0, current version 2.7.0)
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;&#x2F;usr&#x2F;lib&#x2F;libc++.1.dylib&lt;&#x2F;span&gt;&lt;span&gt; (compatibility version 1.0.0, current version 120.1.0)
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;&#x2F;usr&#x2F;lib&#x2F;libSystem.B.dylib&lt;&#x2F;span&gt;&lt;span&gt; (compatibility version 1.0.0, current version 1225.0.0)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ycm_client_support.so:
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;@rpath&#x2F;ycm_client_support.so&lt;&#x2F;span&gt;&lt;span&gt; (compatibility version 0.0.0, current version 0.0.0)
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;libpython2.7.dylib&lt;&#x2F;span&gt;&lt;span&gt; (compatibility version 2.7.0, current version 2.7.0)
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;&#x2F;usr&#x2F;lib&#x2F;libc++.1.dylib&lt;&#x2F;span&gt;&lt;span&gt; (compatibility version 1.0.0, current version 120.1.0)
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;&#x2F;usr&#x2F;lib&#x2F;libSystem.B.dylib&lt;&#x2F;span&gt;&lt;span&gt; (compatibility version 1.0.0, current version 1225.0.0)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Finally, I realize that is the reason why pyton crashes at nvim start up.&lt;&#x2F;p&gt;
+&lt;p&gt;So I just change shared library point to correct path manually by install_name_tool
+(both ycm_core.so and ycm_client_support.so).&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;~&#x2F;.vim&#x2F;plug&#x2F;ycmd&lt;&#x2F;span&gt;&lt;span&gt; $ install_name_tool&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -change &lt;&#x2F;span&gt;&lt;span&gt;\
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;libpython2.7.dylib&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;opt&#x2F;miniconda&#x2F;lib&#x2F;libpython2.7.dylib&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span&gt;ycm_core.so
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now everything works like a charm.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; href=&quot;#references&quot; hidden=&quot;&quot;&gt;#&lt;&#x2F;a&gt;
+&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Valloric&#x2F;YouCompleteMe&#x2F;blob&#x2F;master&#x2F;README.md&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;Valloric&#x2F;YouCompleteMe&#x2F;blob&#x2F;master&#x2F;README.md&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Valloric&#x2F;YouCompleteMe&#x2F;issues&#x2F;18&quot;&gt;https:&#x2F;&#x2F;github.com&#x2F;Valloric&#x2F;YouCompleteMe&#x2F;issues&#x2F;18&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>
