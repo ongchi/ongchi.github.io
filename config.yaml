@@ -1,5 +1,0 @@
-baseURL: http://ongchi.github.io
-disablePathToLower: true
-languageCode: en-us
-title: My New Hugo Site
-theme: hyde
