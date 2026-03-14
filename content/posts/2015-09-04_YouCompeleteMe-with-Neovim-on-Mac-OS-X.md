@@ -1,5 +1,5 @@
 +++
-title = "Using YouCompleteMe with Neovim (or vim) on Mac OS X"
+title = "YouCompleteMe with Neovim (or vim) on Mac OS X"
 date = 2015-09-04T12:18:00Z
 
 [taxonomies]
